@@ -17,7 +17,7 @@ function CurlError($hCurl, $sResponse)
 	exit("\nERROR: \nurl: ".curl_getinfo($hCurl, CURLINFO_EFFECTIVE_URL)."\ncurl data:" . curl_errno($hCurl) . " - " . curl_strerror(curl_errno($hCurl)) . "\nresponse: ".$sResponse . "\n");
 }
 
-/*! извлечение исходников писем из email
+/*! извлечение исходников писем из email, если указан fnHandler, иначе просто вернет инфу о ящике
 	@param sEmail адрес электронной почты
 	@param sPassword пароль для входа по imap
 	@param sImap адрес imap сервера вместе с протоколом
@@ -29,7 +29,7 @@ function CurlError($hCurl, $sResponse)
 		"time" => время выполнения функции в секундах,
 	]
 */
-function ImapMailCollectior($sEmail, $sPassword, $sImap, $canDelete, $fnHandler=null)
+function ImapMailCollector($sEmail, $sPassword, $sImap, $canDelete=false, $fnHandler=null)
 {
 	$fTime = microtime(true);
 

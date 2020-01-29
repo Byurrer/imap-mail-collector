@@ -43,6 +43,10 @@ function SaveMail($aMsg)
 
 //##########################################################################
 
-//вызов сборки писем с передачей данных для imap сервера и обработчика
-$aData = ImapMailCollectior("box@domain.zone", "password", "imaps://imap.domain.zone", false, "SaveMail");
+//сборка писем с передачей данных для imap сервера и обработчика
+$aData = ImapMailCollector("box@domain.zone", "password", "imaps://imap.domain.zone", false, "SaveMail");
+
+//вернет информацию о ящике
+//$aData = ImapMailCollector("box@domain.zone", "password", "imaps://imap.domain.zone");
+
 print_r($aData);
